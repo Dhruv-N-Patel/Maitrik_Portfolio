@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<div class="home-container">
+
+    <div class="bio-container">
+        <h2 style="font-family: Kode Mono;">Hey, I am Maitrik&#128075;</h2>
+        <p>Your short bio goes here, describing your qualifications, passions, and what makes you unique.
+            re magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laborios
+        </p>
+        <a href="{% url 'contact' %}" class="button">Let's connect</a>
+        </div>
+    <div class="img">
+        <img src="{% static '/main.svg' %}" alt="My image">
+    </div>
+</div>
+
+<h2>Achievements</h2>
+
+<section class="achievements">
+    <div class="achievement-card">
+        <div class="achievement-content">
+          <h3>Your Achievement</h3>
+          <p>Details about your accomplishment go here.</p>
+        </div>
+        <div class="sprinkle">Hello</div>
+      </div>
+      <div class="achievement-card">
+        <div class="achievement-content">
+          <h3>Your Achievement</h3>
+          <p>Details about your accomplishment go here.</p>
+        </div>
+        <div class="sprinkle"></div>
+      </div>
+      <div class="achievement-card">
+        <div class="achievement-content">
+          <h3>Your Achievement</h3>
+          <p>Details about your accomplishment go here.</p>
+        </div>
+        <div class="sprinkle"></div>
+      </div>
+      <div class="achievement-card">
+        <div class="achievement-content">
+          <h3>Your Achievement</h3>
+          <p>Details about your accomplishment go here.</p>
+        </div>
+        <div class="sprinkle"></div>
+      </div>
+      <div class="achievement-card">
+        <div class="achievement-content">
+          <h3>Your Achievement</h3>
+          <p>Details about your accomplishment go here.</p>
+        </div>
+        <div class="sprinkle"></div>
+      </div>
+      <div class="achievement-card">
+        <div class="achievement-content">
+          <h3>Your Achievement</h3>
+          <p>Details about your accomplishment go here.</p>
+        </div>
+        <div class="sprinkle"></div>
+      </div>
+</section>
+
+<h2>Education</h2>
+
+<section class="education">
+    <ul>
+        <li>Institution Name (Degree, Year)</li>
+        <li>re magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</li>
+    </ul>
+</section>
+
+<h2>My Skills</h2>
+<section class="skills">
+    <p>Skill 1</p>
+    <p>Skill 1</p>
+    <p>Skill 1</p>
+    <p>Skill 1</p>
+</section>
+
+{% endblock %}
