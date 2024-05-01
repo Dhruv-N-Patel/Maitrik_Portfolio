@@ -4,27 +4,43 @@
 <section class="work-experience">
     <h2>Work Experience</h2>
     <ul class="timeline">
-        <li>
-            <div class="timeline-icon">
-                <i class="fa fa-briefcase"></i> </div>
-            <div class="timeline-content">
-                <h4>Company Name</h4>
-                <h5>Position - Dates</h5>
-                <p>Describe your responsibilities, achievements, and key learnings. essor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.3</p>
-                <a href="#">More details</a>
+        <h3>Professional Experience</h3>
+        <div class = "experience-container">
+        {% for work in professional %}
+        <div class = "experience-card">
+            <i ><img  src="{% static '/orangewood.jpeg' %}" alt="orangewood"></i>
+            <img  src='{{work.image.url}}' alt="image">
+            {{work.image.url}}
+            <h4 >{{work.company}} </h4>
+            <div>
+                <h5>Position : {{work.position}}</h5>
+                <p>Mentor : {{work.mentor}}
+                    {{work.mentor_position}}
+                </p>
+                <p>{{work.description}}</p>
+                
             </div>
-        </li>
-        <li>
-            <div class="timeline-icon">
-                <i class="fa fa-briefcase"></i> </div>
-            <div class="timeline-content">
-                <h4>Company Name</h4>
-                <h5>Position - Dates</h5>
-                <p>Describe your responsibilities, achievements, and key learnings. essor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.3</p>
-                <a href="#">More details</a>
+        </div>
+    </a>
+        {% endfor %}
+    </div>
+        
+        <h3>Position of responsibility</h3>
+        {% for work in por %}
+        <div class = "company">
+            <i ><img class = "company-icon" src="{% static '/orangewood.jpeg' %}" alt="orangewood"></i>
+            <h4 class= "company-name" >{{work.company}} </h4>
+            <div class="in-company-content">
+                <h5>{{work.position}}</h5>
+                <p class = "work-description">{{work.description}}</p>
             </div>
-        </li>
+        </div>
+        {% endfor %}
+
         </ul>
 </section>
 
+<script>
+
+</script>
 {% endblock %}

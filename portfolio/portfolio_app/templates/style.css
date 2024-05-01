@@ -1,64 +1,315 @@
-/* portfolio_app/static/portfolio_app/css/style.css */
 body {
     margin: 0;
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
+    font-family: 'Satoshi', sans-serif;
+    background-color: #fff;
     color: #333;
+    font-size: 18px;
+    font-style: normal;
 }
 
 .container {
-    max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 250px;
     box-sizing: border-box;
 }
 
-header {
-    background-color: #333;
-    padding: 15px 0;
-    color: white;
-    position: fixed;
-    width: 100%;
-    z-index: 1000;
-}
-
 .logo {
-    font-size: 1.5rem;
+    justify-content:end ;
+    font-family: 'Kode Mono';
+    font-size: 22px;
     font-weight: bold;
 }
 
-nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: flex-end;
-}
-
-nav ul li {
-    margin-left: 20px;
-}
-
+nav {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
+      margin-bottom: 20px;
+      padding: 20px 220px;
+      background-color: #fff;
+    }
+    
 nav a {
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    font-size: 1.2rem;
-    transition: color 0.3s;
-}
-
+      text-decoration: none;
+      color:#555;
+      padding: 10px 30px;
+    }
+    
 nav a:hover {
-    color: #ffd700;
-}
+      color: #007bff;
+    }
+.navbar{
+    justify-content: end;
+  }
 
 .content {
     padding: 80px 0; /* Adjust as needed */
 }
 
-footer {
+.footer {
     background-color: #333;
-    color: white;
-    padding: 20px 0;
+    color: #fff;
+    padding: 30px;
     text-align: center;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+.form-container {
+    width: 700px; /* Adjust width as needed */
+    margin:100px auto; /* Center the form */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+    background-color:#fff;
+    display: flex;
+
 }
+
+.form-title {
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 16px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.form-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.form-button:hover {
+    background-color: #53BD69;
+}
+
+input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.input-group label a {
+    color: #4CAF50;
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 0;
+}
+
+main {
+    padding: 30px;
+}
+
+.home-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.photo-container {
+    width: 90%;
+    text-align:right;
+}
+
+img {
+    width: 100%;
+}
+
+.bio-container {
+    width: 100%;
+    padding: 50px 0px;
+    margin: auto;
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+
+a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+.achievements {
+    margin-top: 50px;
+    display: flex;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+.timeline {
+    position: relative;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.timeline-icon {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 50%;
+    padding: 8px;
+    z-index: 1;
+}
+
+.timeline-content {
+    padding: 20px;
+    border-left: 2px solid #ddd;
+    position: relative;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.project-image {
+    overflow: hidden;
+}
+
+.project-info {
+    padding: 10px;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    background-color: #3498db; /* Choose your preferred color */
+    color: #fff; /* Text color */
+    border-radius: 5px; /* Optional: Rounded corners */
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Hover effect */
+  .button:hover {
+    background-color: #2980b9; /* Choose a slightly different color on hover */
+  }
+
+  .achievements{
+    display: flex;
+   flex-wrap: wrap;
+
+  }
+  .achievement-card {
+    position: relative;
+    width:17vw;
+    height: 300px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+    margin: 20px;
+  }
+
+  .achievement-card:hover {
+    transform: scale(1.1);
+  }
+
+  .achievement-content {
+    padding: 20px;
+  }
+
+  .education-content {
+    padding: 20px;
+    text-align: center;
+  }
+
+.skills{
+    margin: 20px 0;
+    padding: 30px;
+    border-radius: 15px;
+    background-color: #d5d8ff;
+    display: flex;
+}
+
+.skills p {
+    background-color: #87c2f9;
+    border-radius: 15px;
+    padding: 10px 20px;
+    margin: 10px;
+}
+.thanks {
+    max-width: 600px;
+    margin-bottom: 20px;
+    font-size: 30px;
+  }
+
+  .thanks p {
+    margin: 10px 0;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .cyear {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  .social {
+    margin-top: 20px;
+  }
+
+  .social ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .social a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+  }
+
+  .social a:hover {
+    color: #ffd700; /* Change to your preferred highlight color */
+  }
+
+  .social-icon{
+    width: 20px; /* Set the width of the icons */
+   height: 20px;
+  }

@@ -3,10 +3,10 @@
 {% load static %}
 
 <div class="form-container">
-    <div class="photo-container">
-        <img src="{% static '/contact.png' %}" alt="My image">
+    <div >
+        <img class="photo-container" src="{% static '/contact.png' %}" alt="My image">
     </div>
-<form action="/contact_form_submit/" method="post" id="contact-form" >
+<form class = "form-content" action="/contact_form_submit/" method="post" id="contact-form" >
     {% csrf_token %}
     <h2 class="form-title">Let's Connect!</h2>
 
@@ -23,12 +23,14 @@
 
     <div class="input-group">
         <label for="phone_number">Phone Number:</label>
-        <select id="phone_country_code" name="phone_country_code" required>
+        <div style = "display: flex;">
+        <select style = "width: 100px; margin-right: 10px;" id="phone_country_code" name="phone_country_code" required>
             {% for code, country in COUNTRY_CODES %}
                 <option value="{{ code }}">{{ country }}</option>
             {% endfor %}
         </select>
         <input type="text" id="phone_number" name="phone_number" required placeholder="Enter your phone number">
+    </div>
     </div>
 
     <div class="input-group">

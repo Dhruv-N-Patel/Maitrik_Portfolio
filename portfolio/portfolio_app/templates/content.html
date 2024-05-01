@@ -1,159 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
 {% load static %}
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Explore Projects</title>
-  <link rel="stylesheet" type="text/css" href="styles.css">
-  <link rel = "icon" href = 
-  "https://www.favicon.cc/?action=icon&file_id=998926#"
-        type = "image/x-icon">
-  <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-  <link href='https://fonts.googleapis.com/css?family=Kode Mono' rel='stylesheet'>
-  <link href="https://fonts.cdnfonts.com/css/satoshi" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Satoshi', sans-serif;
-      background-color: #fff;
-      color: #333;
-      font-size: 18px;
-      font-style: normal;
-  }
-      .logo {
-        justify-content:end ;
-        font-family: 'Kode Mono';
-        font-size: 22px;
-        font-weight: bold;
-            }
-    nav {
-          display: flex;
-          justify-content: space-between;
-          margin-top: 30px;
-          margin-bottom: 20px;
-          padding: 20px 220px;
-          background-color: #fff;
-        }
-        
-    nav a {
-          text-decoration: none;
-          color:#555;
-          padding: 10px 30px;
-        }
-        
-    nav a:hover {
-          color: #007bff;
-        }
-    .navbar{
-        justify-content: end;
-      }
-      
-      main {
-        padding: 0 220px;
-      }
-      
-      .container {
-        max-width: 1000px;
-        margin: 0 auto;
-      }
-      
-      .filters {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 20px;
-      }
-      
-      .filter-button {
-        padding: 10px 20px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        cursor: pointer;
-      }
-      
-      .filter-button.active {
-        background-color: #007bff;
-        color: #fff;
-      }
-      
-      .blogs-container {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
-      }
-      
-      .blog-card {
-        width: calc(25% - 20px);
-        background-color: #fff;
-        border-radius: 5px;
-        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-        padding: 20px;
-        margin: 10px;
-        transition: all 0.2s ease-in-out;
-      }
-      
-      .blog-card img {
-        width: 100%;
-        height: 150px;
-        object-fit: cover;
-        margin-bottom: 10px;
-      }
-      
-      .blog-card h3 {
-        font-size: 18px;
-        margin-bottom: 5px;
-      }
-      
-      .blog--card p {
-        font-size: 14px;
-        margin-bottom: 10px;
-      }
-      
-      .blog-card a {
-        text-decoration: none;
-        color: #007bff;
-        font-weight: bold;
-        padding: 5px 10px;
-        border: 1px solid #007bff;
-        border-radius: 5px;
-        transition: all 0.2s ease-in-out;
-      }
-      
-      .blog-card a:hover {
-        background-color: #007bff;
-        color: #fff;
-      }
-
-
-      
-  </style>
-
-  <meta charset="UTF-8">
-
-</head>
-
-<body>
-  {% load static %}
-  <header>
-    <nav>   
-      <div class="logo"><a  href="/">Maitrik</a> </div>                
-      <div class="navbar">
-        <a href="{% url 'home' %}">About me</a>
-        <a href="{% url 'work' %}">Work</a>
-        <a href="{% url 'content' %}">Content</a>
-        <a href="{% url 'contact' %}">Contact me</a>
-        </div>
+    <section class="blogs-container">
+      {% for blog in blogs %}
+      <div class="blog-card">
+        {% comment %} <img src= '{{blog.img}}' > {% endcomment %}
+        <img class="project-image" src="{% static '/blogs.jpg' %}" alt="Project 3">
+        <h5>{{ blog.title }}</h5>
+        {% comment %} <a href="{% url 'blog_page' pk=blog.Title %}"> {% endcomment %}
+          <button class="open-project-button">Open Blog</button>
+        {% comment %} </a> {% endcomment %}
       </div>
-    </nav>
-  </header>
-  <main class="blogs-container">
-          {% for blog in blogs %}
-          <div class="blog-card">
-            <img src= "{{ blog.image }}" />
-            <h5>{{ blog.title }}</h5>
-            {% comment %} <a href="{% url 'blog_page' pk=blog.Title %}"> {% endcomment %}
-              <button class="open-project-button">Open Blog</button>
-            </a>
-          </div>
-          {% endfor %}
-    </main>
-</body>
-</html>
+      {% endfor %}
+    </section>
+
+{% endblock %}

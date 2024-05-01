@@ -1,82 +1,125 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
-<div class="home-container">
 
+<style>
+  .education {
+    margin-top: 50px;
+    overflow: hidden; /* Enable smooth scrolling within the section */
+  }
+  .banner {
+    padding: 20px;
+    margin: 20px;
+    border-radius: 15px;
+    background-image: linear-gradient(to bottom, #7C68FF , #0661A4);
+    color: whitesmoke;
+    {% comment %} opacity: 0; /* Initially make banners invisible */ {% endcomment %}
+    transition: all 0.8s ease-in-out; /* Transition all properties (including opacity) */
+  }
+
+</style>
+
+<div class="home-container">
     <div class="bio-container">
-        <h2 style="font-family: Kode Mono;">Hey, I am Maitrik&#128075;</h2>
+        <h2 style="font-family: Kode Mono;">Hey, I am <b style="color: #7B66FF;">Maitrik</b>&#128075;</h2>
         <p>Your short bio goes here, describing your qualifications, passions, and what makes you unique.
             re magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laborios
         </p>
-        <a href="{% url 'contact' %}" class="button">Let's connect</a>
+        {% comment %} <a href="{% url 'contact' %}" class="button">Let's connect</a> {% endcomment %}
         </div>
-    <div class="img">
-        <img src="{% static '/main.svg' %}" alt="My image">
+    <div class="main-img">
+        <img class="main-img" src="{% static '/maitrik 3.png' %}" alt="My image">
     </div>
 </div>
 
 <h2>Achievements</h2>
 
 <section class="achievements">
+  {% for achievement in achievements %}
     <div class="achievement-card">
         <div class="achievement-content">
-          <h3>Your Achievement</h3>
-          <p>Details about your accomplishment go here.</p>
+          <h3>{{achievement.title}}</h3>
+          <h5>By : {{achievement.issuing_organization}}</h5>
+          <p>{{achievement.description}}</p>
+          <p>{{achievement.date_earned}}</p>
         </div>
-        <div class="sprinkle">Hello</div>
+        {% comment %} <div class="sprinkle">Hello</div> {% endcomment %}
       </div>
-      <div class="achievement-card">
-        <div class="achievement-content">
-          <h3>Your Achievement</h3>
-          <p>Details about your accomplishment go here.</p>
-        </div>
-        <div class="sprinkle"></div>
-      </div>
-      <div class="achievement-card">
-        <div class="achievement-content">
-          <h3>Your Achievement</h3>
-          <p>Details about your accomplishment go here.</p>
-        </div>
-        <div class="sprinkle"></div>
-      </div>
-      <div class="achievement-card">
-        <div class="achievement-content">
-          <h3>Your Achievement</h3>
-          <p>Details about your accomplishment go here.</p>
-        </div>
-        <div class="sprinkle"></div>
-      </div>
-      <div class="achievement-card">
-        <div class="achievement-content">
-          <h3>Your Achievement</h3>
-          <p>Details about your accomplishment go here.</p>
-        </div>
-        <div class="sprinkle"></div>
-      </div>
-      <div class="achievement-card">
-        <div class="achievement-content">
-          <h3>Your Achievement</h3>
-          <p>Details about your accomplishment go here.</p>
-        </div>
-        <div class="sprinkle"></div>
-      </div>
+      {% endfor %}
 </section>
 
 <h2>Education</h2>
 
 <section class="education">
-    <ul>
-        <li>Institution Name (Degree, Year)</li>
-        <li>re magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</li>
+  {% for education in education %}
+    <div class="banner">
+      <ul>
+        <h3>{{ education.institution }}</h3>
+        <h4>{{ education.degree }}</h4>
+        <h4>{{ education.graduation_year }}</h4>
+        <h5>{{ education.description }}</h5>
+      </ul>
+    </div>
+  {% endfor %}
+</section>
+
+
+
+
+<h2>My Skills</h2>
+
+<section class="skills">
+    {% for skill in skills %}
+    <li>{{ skill.skill }}</li>
+    {% endfor %}
+</section>
+
+<section id="skills">
+  <h2>Skills</h2>
+  <ul class="skill-list">
+    {% for skill in skills %}    
+    <li>
+      <h3>{{ skill.skill }}</h3>
+      <div class="progress-bar">
+        <div class="progress" style="width: 80%;"></div>
+      </div>
+    </li>
+    {% endfor %}
     </ul>
 </section>
 
-<h2>My Skills</h2>
-<section class="skills">
-    <p>Skill 1</p>
-    <p>Skill 1</p>
-    <p>Skill 1</p>
-    <p>Skill 1</p>
-</section>
+<script>
+  {% comment %} const educationSection = document.querySelector('.education');
+  const banners = educationSection.querySelectorAll('.banner');
+
+  const options = {
+    root: educationSection, // Observe within the education section
+    threshold: 0.5, // Trigger animation when 50% of banner is visible
+  };
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = 1; // Animate banner to its final state
+        entry.target.style.transform = 'translateY(0)'; // Animate banner position
+      }
+    });
+  }, options);
+
+  banners.forEach(banner => observer.observe(banner)); {% endcomment %}
+
+  const progressBars = document.querySelectorAll('.progress');
+
+  progressBars.forEach(progressBar => {
+  const width = progressBar.style.width;
+  progressBar.addEventListener('mouseover', () => {
+    progressBar.style.width = '100%';
+  });
+
+  progressBar.addEventListener('mouseout', () => {
+    progressBar.style.width = width;
+  });
+});
+</script>
 
 {% endblock %}

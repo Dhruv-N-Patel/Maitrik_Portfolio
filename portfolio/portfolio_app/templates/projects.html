@@ -2,38 +2,22 @@
 {% block content %}
 {% load static %}
 <section class="projects">
+
   <h2>Projects</h2>
-  <ul class="project-grid">
-      <li>
-          <div class="project-image">
-              <img src="{% static '/project1.png' %}" alt="Project 1">
-          </div>
-          <div class="project-info">
-              <h4>Project 1</h4>
-              <p>Brief description of project. essor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.3</p>
-              <a href="#" class="button">View Project</a>
-          </div>
-      </li>
-      <li>
-          <div class="project-image">
-              <img src="{% static '/project2.png' %}" alt="Project 2">
-                      </div>
-          <div class="project-info">
-              <h4>Project 2</h4>
-              <p>Brief description of project. essor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.3</p>
-              <a href="#" class="button">View Project</a>
-          </div>
-      </li>
-      <li>
-          <div class="project-image">
-              <img src="{% static '/project3.png' %}" alt="Project 3">
-                      </div>
-          <div class="project-info">
-              <h4>Project 3</h4>
-              <p>Brief description of project. essor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.3</p>
-              <a href="#" class="button">View Project</a>
-          </div>
-      </li>
-      </ul>
+  
+  <div class="project-grid">    
+    {% for project in projects %}
+    <div class = "project-card">
+        <div>
+            <img class="project-image" src="{% static '/default-project.jpg' %}" alt="Project 3">
+                    </div>
+        <div class="project-info">
+            <h4>{{ project.title }}</h4>
+            <p> {{project.description}}</p>
+            <a href="#" class="button">View Project</a>
+        </div>
+    </div>
+    {% endfor %}
+    </div>
 </section>
 {% endblock %}
